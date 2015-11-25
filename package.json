@@ -21,5 +21,8 @@
     "joi": "^4.6.2",
     "phantomjs": "^1.9.7-15",
     "screenshot-stream": "^1.2.2"
+  },
+  "devDependencies": {
+    "nconf": "^0.8.2"
   }
 }
