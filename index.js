@@ -49,7 +49,7 @@ internals.prepareShot = function (key) {
 internals.cache = LRU({
   max: 1024 * 1024 * 256,
   length: function (buf) { return buf.length; },
-  fetchFn: internals.prepareShot,
+  fetchFn: internals.prepareShot
 });
 
 server.route({
@@ -58,23 +58,23 @@ server.route({
   config: {
     validate: {
       params: {
-        plunkId: Joi.string().alphanum().required(),
+        plunkId: Joi.string().alphanum().required()
       },
       query: {
-        d: Joi.string().required(),
-      },
+        d: Joi.string().required()
+      }
     },
     handler: function (request, reply) {
       internals.cache.get(request.params.plunkId + "@" + request.query.d)
         .then(function (buf) {
           reply(buf).type("image/png");
         }, reply);
-    },
-  },
+    }
+  }
 });
 
 server.pack.register({
-  plugin: require("good"),
+  plugin: require("good")
   // options: {
   //   subscribers: {
   //     'console': [],
