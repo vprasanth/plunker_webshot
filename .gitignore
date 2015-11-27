@@ -6,5 +6,6 @@ bower_components
 
 config.development.js
 config.production.js
+config.json
 
 .idea
